@@ -1,3 +1,15 @@
+//install node v18.13.0 (node -v)
+`npm install`
+
+//install React
+`npm install react react-dom`
+
+//Ant Design of React (Using npm or yarn or pnpm or bun)
+`npm install antd --save`
+
+//momentjs 
+`npm install moment --save`
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

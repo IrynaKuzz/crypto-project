@@ -1,6 +1,5 @@
 import {cryptoData, cryptoAssets} from '../store/data'
 
-
 export async function fetchData(){
     return cryptoData
 }

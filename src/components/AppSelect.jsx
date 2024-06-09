@@ -16,7 +16,7 @@ export default function AppSelect({clearSelect, onValueChange}){
         // console.log(`selected ${value}`);     
     }
     function handleSelect(value){
-        debugger       
+               
         const selectdata = crypto.find(c=>c.name === value)
         setSelectValue(selectdata.name)
         setSelectIcon(selectdata.icon)

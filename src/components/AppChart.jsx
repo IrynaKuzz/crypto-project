@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import Context from '../store/context';
@@ -36,10 +36,9 @@ export default function AppChart(){
   }
   return(
       <>
-      <div style={{height: 400, marginBottom: '1rem', display: 'flex'}}>
+        <div style={{height: 400, marginBottom: '1rem', display: 'flex'}}>
           <Pie data={data} />
-      </div>
-      
+        </div>      
       </>
   )
 }

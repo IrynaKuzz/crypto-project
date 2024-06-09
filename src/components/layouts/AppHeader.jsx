@@ -42,23 +42,24 @@ function AppHeader({assets, crypto, onData, onClickFormButton, addNewAsset}){
     return(
         <>
             <Row name="headerRow" style={headerStyle}>
-                <Col span={12} style={leftColStyle}>
+                <Col className="gutter-row" span={12} style={leftColStyle}>
                     <AppLeftSelectComponent crypto={crypto} assets={assets} />
                 </Col>
-                <Col span={12} style={rightColStyle}>
+                <Col className="gutter-row" span={12} style={rightColStyle}>
                     <Button type="primary" onClick={showDrawer} > open Drawer</Button>
                 </Col>
+            
+                <AppDrawer 
+                    open={open} 
+                    onClose={onClose} 
+                    clearSelect={clearSelect} 
+                    onData={handleChildData}
+                    onSubmit={onSubmit}
+                    onClickFormButton={onClickFormButton}
+                    addNewAsset={addNewAsset}
+                    crypto={crypto}
+                />
             </Row>
-            <AppDrawer 
-                open={open} 
-                onClose={onClose} 
-                clearSelect={clearSelect} 
-                onData={handleChildData}
-                onSubmit={onSubmit}
-                onClickFormButton={onClickFormButton}
-                addNewAsset={addNewAsset}
-                crypto={crypto}
-            />
         </>
     )
 }

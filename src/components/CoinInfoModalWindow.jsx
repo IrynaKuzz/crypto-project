@@ -7,7 +7,7 @@ export default function CoinInfoModalWindow({coin}){
     }
     return(              
         <>
-           <Flex >
+            <Flex >
                 <img src={coin.icon} alt={coin.name} style={imgStyle} />
                 <Typography.Title level={2}>{coin.symbol} {coin.name}</Typography.Title>
             </Flex>

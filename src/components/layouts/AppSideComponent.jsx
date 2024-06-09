@@ -1,7 +1,6 @@
-import React, {useEffect} from 'react';
-//import Context from '../../store/context'
+import React from 'react';
 import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons';
-import { Card, Layout, Statistic, List, Typography, Tag } from 'antd';
+import { Card, Statistic, List, Typography, Tag } from 'antd';
 
 const siderStyle = {
     textAlign: 'center',
@@ -13,18 +12,16 @@ const siderStyle = {
 const cardStyle={
     margin: '1rem'
 }
-
 function AppSideComponent({assets}){
     return(
         <>
-            <Layout.Sider width="100%" style={siderStyle}> 
+            <div style={siderStyle}> 
                 <Typography.Title level={4}> My purchases</ Typography.Title >
-                {assets.map((asset)=>{
-                   
-                    if (!asset.id) {
-                        console.warn("Asset missing id:", asset);
-                        return null;
-                    }
+                    {assets.map((asset)=>{                   
+                        if (!asset.id) {
+                            console.warn("Asset missing id:", asset);
+                            return null;
+                        }
                 return(
                 <Card key={asset.id} style={cardStyle}>
                     <Statistic
@@ -38,10 +35,10 @@ function AppSideComponent({assets}){
                     <List 
                         size='large'
                         dataSource={[
-                        {title: 'Total Profit', value: asset.totalProfit, isShow: true },
-                        {title: 'Asset Amount', value: asset.amount },
-                        {title: 'Difference', value: asset.growPercent }
-                    ]}
+                            {title: 'Total Profit', value: asset.totalProfit, isShow: true },
+                            {title: 'Asset Amount', value: asset.amount },
+                            {title: 'Difference', value: asset.growPercent }
+                        ]}
                         renderItem={(item) => (
                         <List.Item>
                             <span >{item.title}</span>
@@ -55,7 +52,7 @@ function AppSideComponent({assets}){
                 </Card>
                 )
                 })}
-                </Layout.Sider>
+            </div>
         </>
     )
 }
