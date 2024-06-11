@@ -32,6 +32,9 @@
 .App-link {
   color: #61dafb;
 }
+#chart{
+  width: 400px !important;
+}
 
 @keyframes App-logo-spin {
   from {

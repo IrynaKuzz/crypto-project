@@ -4,7 +4,11 @@ import { Pie } from 'react-chartjs-2';
 import Context from '../store/context';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
-
+const chart= {
+  height: '400px',
+  marginBottom: '1rem',
+  display: 'flex'
+}
 export default function AppChart(){    
   const {assets} = useContext(Context)
 
@@ -36,7 +40,7 @@ export default function AppChart(){
   }
   return(
       <>
-        <div style={{height: 400, marginBottom: '1rem', display: 'flex'}}>
+        <div id='chart' style={chart}>
           <Pie data={data} />
         </div>      
       </>

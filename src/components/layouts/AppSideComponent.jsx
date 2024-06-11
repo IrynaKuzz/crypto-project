@@ -13,45 +13,45 @@ const cardStyle={
     margin: '1rem'
 }
 function AppSideComponent({assets}){
+    debugger
     return(
         <>
             <div style={siderStyle}> 
                 <Typography.Title level={4}> My purchases</ Typography.Title >
-                    {assets.map((asset)=>{                   
-                        if (!asset.id) {
+                    {assets.map((asset)=>{
+                        if(!asset.id){
                             console.warn("Asset missing id:", asset);
-                            return null;
-                        }
-                return(
-                <Card key={asset.id} style={cardStyle}>
-                    <Statistic
-                        title={(asset.id).charAt(0).toUpperCase() + (asset.id).slice(1)}
-                        value={asset.totalAmount}
-                        precision={2}
-                        valueStyle={{ color: asset.grow ? '#3f8600' : '#cf1322' }}
-                        prefix={ asset.grow ? <ArrowUpOutlined /> : < ArrowDownOutlined/>}
-                        suffix="$"
-                    />
-                    <List 
-                        size='large'
-                        dataSource={[
-                            {title: 'Total Profit', value: asset.totalProfit, isShow: true },
-                            {title: 'Asset Amount', value: asset.amount },
-                            {title: 'Difference', value: asset.growPercent }
-                        ]}
-                        renderItem={(item) => (
-                        <List.Item>
-                            <span >{item.title}</span>
-                            <span>{item.isShow && <Tag color={asset.grow ? 'green':'red'}>{asset.growPercent}%</Tag> } </span>
-                            <Typography.Text 
-                                type={asset.grow ? 'success' : 'danger'} >{item.value} $
-                            </Typography.Text> 
-                    </List.Item>
-                    )}
-                    /> 
-                </Card>
-                )
-                })}
+                        }else{
+                        return(
+                            <Card key={asset.id} style={cardStyle}>
+                                <Statistic
+                                    title={(asset.id).charAt(0).toUpperCase() + (asset.id).slice(1)}
+                                    value={asset.totalAmount}
+                                    precision={2}
+                                    valueStyle={{ color: asset.grow ? '#3f8600' : '#cf1322' }}
+                                    prefix={ asset.grow ? <ArrowUpOutlined /> : < ArrowDownOutlined/>}
+                                    suffix="$"
+                                />
+                                <List 
+                                    size='large'
+                                    dataSource={[
+                                        {title: 'Total Profit', value: asset.totalProfit, isShow: true },
+                                        {title: 'Asset Amount', value: asset.amount },
+                                        {title: 'Difference', value: asset.growPercent }
+                                    ]}
+                                    renderItem={(item) => (
+                                    <List.Item>
+                                        <span >{item.title}</span>
+                                        <span>{item.isShow && <Tag color={asset.grow ? 'green':'red'}>{asset.growPercent}%</Tag> } </span>
+                                        <Typography.Text 
+                                            type={asset.grow ? 'success' : 'danger'} >{item.value} $
+                                        </Typography.Text> 
+                                </List.Item>
+                                )}
+                                /> 
+                            </Card>
+                        );
+                    }})}
             </div>
         </>
     )

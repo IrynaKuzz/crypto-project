@@ -33,8 +33,10 @@ export function AppWrapper({children}){
          
     useEffect(()=>{           
         async function preload(){
-            const {result} = await fetchData();
+            const cryptoData = await fetchData();
             const assetsData = await fetchAsset();
+            debugger
+            const result = cryptoData.result;
             
             setAssets(                        
                 assetsData.map((asset)=>{
